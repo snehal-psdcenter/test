@@ -23,6 +23,15 @@ category:
 <h1 class="page-heading">{{category.name}}</h1>
 {{{category.description}}}
 {{{snippet 'categories'}}}
+
+{{#if banners.top}}
+<div class="banners m-b-30" data-banner-location="top">
+    <div class="banner">
+        {{{limit banners.top 1}}}
+    </div>
+</div>
+{{/if}}
+
 <div class="page">
     {{#or category.subcategories category.faceted_search_enabled category.shop_by_price}}
         <aside class="page-sidebar" id="faceted-search-container">

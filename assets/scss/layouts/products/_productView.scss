@@ -50,11 +50,11 @@
     padding-left: spacing("base");
     padding-right: spacing("base");
 
-    @include breakpoint("large") {
-        clear: right;
-        float: right;
-        width: grid-calc(6, $total-columns);
-    }
+    // @include breakpoint("large") {
+    //     clear: right;
+    //     float: right;
+    //     width: grid-calc(6, $total-columns);
+    // }
 
     .productView-title {
         border-bottom: container("border");

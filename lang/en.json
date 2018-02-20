@@ -7,7 +7,8 @@
         "navigate": "Navigate",
         "info": "Info",
         "categories": "Categories",
-        "call_us": "Call us at {phone_number}"
+        "call_us": "Call us at {phone_number}",
+        "header_call_us": "Call us : {phone_number}"
     },
     "home": {
         "heading": "Home"

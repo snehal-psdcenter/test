@@ -1,7 +1,7 @@
-{{#if banners.top}}
-<div class="banners" data-banner-location="top">
+{{#if theme_settings.showtopbanner}}
+<div class="banners">
     <div class="banner">
-        {{{limit banners.top 1}}}
+        <p>{{theme_settings.topbannertext}}</p>
     </div>
 </div>
 {{/if}}
@@ -11,15 +11,34 @@
     </a>
     {{> components/common/navigation}}
 
-    {{#if page_type '===' 'default'}}
-        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
-        </h1>
-    {{else}}
-        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
+    <div class="header-middle-bar">
+      <div class="container">
+        <div class="display-table">
+          <div class="display-tab-cell col-3">
+            {{#if settings.phone_number}}
+                <strong class="header-contact">{{lang 'footer.header_call_us' phone_number=settings.phone_number}}</strong>
+            {{/if}}
+          </div>
+          <div class="display-tab-cell col-3">
+            {{#if page_type '===' 'default'}}
+                <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                    {{> components/common/store-logo}}
+                </h1>
+            {{else}}
+                <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                    {{> components/common/store-logo}}
+                </div>
+            {{/if}}
+          </div>
+          <div class="display-tab-cell col-3 align-right">
+            <div id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+                {{> components/common/quick-search}}
+            </div>
+          </div>
         </div>
-    {{/if}}
+      </div>
+    </div>
+
     {{{region name="header_bottom"}}}
     <div class="navPages-container" id="menu" data-menu>
         {{> components/common/navigation-menu}}

@@ -7,15 +7,6 @@
 {{/if}}
 <footer class="footer" role="contentinfo">
     <div class="container">
-        {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
-            <article class="footer-info-col
-                footer-info-col--social
-                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
-                data-section-type="footer-webPages">
-                    <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
-                    {{> components/common/social-links}}
-            </article>
-        {{/if}}
         <section class="footer-info">
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h5 class="footer-info-heading">{{lang 'footer.navigate'}}</h5>
@@ -70,7 +61,15 @@
                 {{#if settings.show_newsletter_box}}
                     {{> components/common/subscription-form}}
                 {{/if}}
-                {{> components/common/payment-icons}}
+
+                {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+                    <article class="footer-info-col-1
+                        footer-info-col--social"
+                        data-section-type="footer-webPages">
+                            <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
+                            {{> components/common/social-links}}
+                    </article>
+                {{/if}}
             </article>
         </section>
         {{#if theme_settings.geotrust_ssl_common_name}}
@@ -78,15 +77,27 @@
                 {{> components/common/geotrust-ssl-seal}}
             </div>
         {{/if}}
-        {{#if theme_settings.show_powered_by}}
-            <div class="footer-copyright">
-                <p class="powered-by">Powered by <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
+        <div class="footer-bottom-bar clearfix">
+          <div class="display-table">
+            <div class="display-tab-cell col-2">
+              <div class="footer-copyright">
+                  <p class="powered-by">
+                    {{#if theme_settings.show_powered_by}}
+                    Powered by
+                    <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a>
+                    {{/if}}
+                    {{#if theme_settings.show_copyright_footer}}
+                      &copy; {{moment format="YYYY"}} {{settings.store_name}}
+                    {{/if}}
+                  </p>
+              </div>
             </div>
-        {{/if}}
-        {{#if theme_settings.show_copyright_footer}}
-            <div class="footer-copyright">
-                <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+            <div class="display-tab-cell col-2">
+              <div class="float-right">
+                {{> components/common/payment-icons}}
+              </div>
             </div>
-        {{/if}}
+          </div>
+        </div>
     </div>
 </footer>

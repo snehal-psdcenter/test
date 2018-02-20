@@ -426,6 +426,17 @@
     "name": "Header & Footer",
     "settings": [
       {
+        "type": "checkbox",
+        "label": "Show Top Banner",
+        "force_reload": true,
+        "id": "showtopbanner"
+      },
+      {
+        "type": "input",
+        "label": "Banner text",
+        "id": "topbannertext"
+      },
+      {
         "type": "color",
         "label": "Header background color",
         "id": "header-backgroundColor"
@@ -715,12 +726,6 @@
       {
         "type": "paragraph",
         "content": "Social accounts must be set up to use this feature."
-      },
-      {
-        "type": "checkbox",
-        "label": "Top Right (Toggle On/Off)",
-        "force_reload": true,
-        "id": "social_icon_placement_top"
       },
       {
         "type": "select",

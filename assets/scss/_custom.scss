@@ -1,0 +1,152 @@
+/* ====================== COMMON STYLE ====================== */
+
+.clearfix:before, .clearfix:after{ display:table; content:" "; }
+.clearfix:after{ clear:both; }
+
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}
+.align-right{
+  text-align: right;
+}
+.align-left{
+  text-align: left;
+}
+.align-center{
+  text-align: center;
+}
+.m-b-30{
+  margin-bottom: 30px;
+}
+.display-table{
+  display: table; width: 100%;
+}
+.display-tab-cell{
+  display: table-cell; vertical-align: middle;
+}
+
+.col-3{
+  width: 33.33%;
+}
+.col-2{
+  width: 50%;
+}
+
+/* ====================== HEADER STYLE ====================== */
+
+.header-middle-bar{
+  padding: 20px 0;
+}
+.header-contact{
+  font-size: 16px;
+}
+.search-form{
+  position: relative;
+}
+.form-fieldset{
+  position: relative;
+}
+.icon-search{
+  position: absolute; top: 50%; right: 10px; margin-top: -12px; padding: 0; width: 24px; height: 24px; opacity: 0.8;
+  display: block; background: url("../img/icon-search.png") no-repeat center center; background-size: 17px;
+  &:hover{
+    opacity: 1;
+  }
+}
+#quickSearch{
+  position: relative;
+}
+.quickSearchResults{
+  position: absolute; top: 100%; right: 0; width: 100%; z-index: 20;
+  .modal-close{
+    display: none;
+  }
+  .productGrid{
+    padding: 10px; border: 1px solid #cccccc; margin: 5px 0 0 0; background: #ffffff;
+    -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+    .product{
+      float: none; width: auto; display: block; padding: 0;
+      + .product{
+        padding-top: 10px; margin-top: 10px; border-top: 1px solid #cccccc;
+      }
+    }
+  }
+  .card{
+    margin-bottom: 0;
+    &:before, &:after{ display:table; content:" "; }
+    &:after{ clear:both; }
+  }
+  .card-figure{
+    width: 80px; padding: 5px; border: 1px solid #cccccc; float: left; margin-right: 15px;
+    -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+  }
+  .card-figcaption{
+    display: none;
+  }
+  .card-body{
+    overflow: hidden; padding-top: 0;
+  }
+}
+
+.card-img-container{
+  &:after{
+    display: none;
+  }
+}
+.navPage-subMenu{
+  left: 0; width: 100%;
+}
+.navPage-subMenu-horizontal{
+  padding: 0 !important;
+}
+.navPage-subMenu-item-child{
+  .navPage-subMenu-horizontal {
+    border-left: 1px solid #cccccc;
+    height: auto;
+    margin-left: 15.35714rem;
+    padding: 0 !important;
+    top: 0;
+    width: 16.35714rem;
+  }
+}
+.navPages-item{
+  &:hover{
+    > .navPages-action{
+      background: #e5e5e5;
+    }
+    > .navPage-subMenu{
+      display: block;
+    }
+    > .navPage-subMenu-level-second{
+      display: block;
+    }
+  }
+}
+.navPage-subMenu-item-second{
+  &:hover{
+    .navPage-subMenu{
+  	   display: block;
+    }
+  }
+}
+
+/* ====================== INNER PAGE STYLE ====================== */
+
+ul.treeview{
+  li{
+    position: relative;
+    ul{
+      margin-left: 15px; display: none;
+    }
+  }
+  .hitarea{
+    height: 28px; width: 28px; position: absolute; top: 0; right: 0; background-image: $select-backgroundImage;
+    background-position: center center;
+    &.collapsable-hitarea{
+      -ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg);
+    }
+  }
+}
