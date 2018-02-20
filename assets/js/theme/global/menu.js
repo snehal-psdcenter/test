@@ -48,7 +48,10 @@ class Menu {
     }
 
     onMenuClick(event) {
-        event.stopPropagation();
+        if (!$('.quickSearchResults.visible').length) {
+            event.stopPropagation();
+        }
+
 
         if (this.hasMaxMenuDisplayDepth) {
             const $neighbors = $(event.target).parent().siblings();

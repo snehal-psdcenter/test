@@ -180,20 +180,22 @@
     </section>
 
     <section class="productView-images" data-image-gallery>
+      <a class="fancythumb" rel="gallery" href="javascript:void(0);">
         <figure class="productView-image"
                 data-image-gallery-main
                 data-zoom-image="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}"
                 >
             <div class="productView-img-container">
-                <a href="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}">
-                    <img class="productView-image--default lazyload" 
-                         data-sizes="auto" 
-                         src="{{cdn 'img/loading.svg'}}" 
+
+                    <img class="productView-image--default lazyload"
+                         data-sizes="auto"
+                         src="{{cdn 'img/loading.svg'}}"
                          data-src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}"
                          alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
-                </a>
+
             </div>
         </figure>
+          </a>
         <ul class="productView-thumbnails"{{#gt product.images.length 5}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
@@ -202,9 +204,10 @@
             }'{{/gt}}>
             {{#each product.images}}
                 <li class="productView-thumbnail">
-                    <a
-                        class="productView-thumbnail-link"
-                        href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                    <a rel="gallery" {{#if ../schema}}data-fancybox="gallery"{{/if}}
+                        data-fancybox-href="{{getImage this (cdn ../theme_settings.default_image_product)}}"
+                        class="productView-thumbnail-link {{#if (stripQuerystring (getImage ../product.main_image 'product_size' (cdn ../theme_settings.default_image_product))) '==' (stripQuerystring (getImage this 'product_size' (cdn ../theme_settings.default_image_product))) }}is-active is-main{{/if}}"
+                        href="{{#if ../schema}}{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}{{else}}javascript:void(0);{{/if}}"
                         data-image-gallery-item
                         data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
                         data-image-gallery-zoom-image-url="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}">

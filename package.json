@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "@bigcommerce/stencil-utils": "^1.0.10",
+    "@fancyapps/fancybox": "^3.2.5",
     "async": "^2.5.0",
     "babel-polyfill": "^6.26.0",
     "easyzoom": "^2.5.0",
@@ -21,6 +22,7 @@
     "pace": "hubspot/pace#a03f1f1de62c9cea6c88b2267b8d7a83858b6cb6",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^6.10.1",
+    "@fancyapps/fancybox": "^3.2.5",
     "treemenu.js": "psdcenter/custom-treeview"
   },
   "devDependencies": {

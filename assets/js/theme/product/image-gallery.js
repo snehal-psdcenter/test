@@ -40,7 +40,7 @@ export default class ImageGallery {
     }
 
     selectNewImage(e) {
-        e.preventDefault();
+        //e.preventDefault();
 
         const $target = $(e.currentTarget);
         const imgObj = {
@@ -65,6 +65,12 @@ export default class ImageGallery {
         this.$mainImage.attr({
             'data-zoom-image': this.currentImage.zoomImageUrl,
         });
+        if($('.ruleimage').length){
+              $('.ruleimage').remove();
+              $('.hiddengallery.currentGalleryImage').removeClass('currentGalleryImage');
+              $(".productView-thumbnail-link[data-image-gallery-zoom-image-url='"+this.currentImage.zoomImageUrl+"']").addClass('is-active');
+        }
+
     }
 
     setImageZoom() {
