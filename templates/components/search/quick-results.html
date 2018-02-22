@@ -12,7 +12,9 @@
     </ul>
     {{#if (length product_results.products) '>' 5}}
          <div class="view-all-btn">
-             <a hre="javascript:void(0);" onclick="document.getElementById(this.parentElement.parentElement.parentElement.getElementsByTagName('form')[0].getAttribute('id')).submit();" class="button view-all">View All</a>
+             <a hre="javascript:void(0);"
+             onclick="document.getElementById(this.parentElement.parentElement.parentElement.getElementsByTagName('form')[0].getAttribute('id')).submit();"
+             class="button button--primary view-all">View All</a>
          </div>
    {{/if}}
 {{else}}

@@ -1,0 +1,79 @@
+@media only screen and (max-width:800px) {
+
+body{
+  padding-top: 129px;
+}
+.show-for-tab{
+  display: block;
+}
+.mobileMenu-toggle{
+  padding: 5px; width: 30px; margin-right: 5px;
+}
+.navUser{
+  border-bottom: none; display: none;
+}
+.header-middle-bar{
+  border-bottom: none; padding: 15px 0;
+  #quickSearch{
+    position: absolute; left: 0; width: 100%; top: 75px; display: none;
+  }
+  .search-form{
+    width: auto; float: none; padding: 0 5px;
+  }
+}
+.header-contact{
+  span{
+    display: none;
+  }
+}
+.navPages-container{
+  &.is-open{
+    padding-top: 130px;
+  }
+}
+
+}
+
+@media only screen and (max-width:767px) {
+
+.navPages-container{
+  &.is-open{
+    padding-top: 86px;
+  }
+}
+body{
+  padding-top: 86px;
+}
+.custom-banner{
+  display: none;
+}
+.header-middle-bar{
+  .container{
+    padding-left: 10px; padding-right: 10px;
+  }
+  .col-one, .col-three{
+    width: 30%
+  }
+  .col-two{
+    width: 40%;
+  }
+}
+.header-logo{
+  padding: 0 10px;
+}
+.header-logo-text{
+  font-size: 14px;
+}
+.footer-bottom-bar{
+  .display-tab-cell{
+    display: block; width: auto; text-align: center;
+    .float-right{
+      float: none;
+    }
+  }
+}
+.footer-copyright{
+  text-align: center; margin-bottom: 10px;
+}
+
+}

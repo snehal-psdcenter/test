@@ -37,25 +37,69 @@
   width: 50%;
 }
 
+.show-for-tab{
+  display: none;
+}
+
 /* ====================== HEADER STYLE ====================== */
 
+.navUser{
+  border-bottom: 1px solid #ededed;
+}
 .header-middle-bar{
-  padding: 20px 0;
+  padding: 30px 0; border-bottom: 1px solid #ededed; position: relative;
 }
 .header-contact{
-  font-size: 16px;
+  font-size: 18px; text-decoration: none;
+  span{
+    margin-left: 10px;
+  }
+}
+.icon-call{
+  width: 24px; height: 24px; display: inline-block; background: url("../img/icon-contact.png") no-repeat center center; background-size: 18px;
+  vertical-align: middle;
 }
 .search-form{
-  position: relative;
+  position: relative; width: 250px;
+  .icon-search{
+    position: absolute; top: 50%; right: 10px; margin-top: -12px; padding: 0; opacity: 0.8;
+    &:hover{
+      opacity: 1;
+    }
+  }
 }
 .form-fieldset{
   position: relative;
 }
 .icon-search{
-  position: absolute; top: 50%; right: 10px; margin-top: -12px; padding: 0; width: 24px; height: 24px; opacity: 0.8;
-  display: block; background: url("../img/icon-search.png") no-repeat center center; background-size: 17px;
-  &:hover{
-    opacity: 1;
+  width: 24px; height: 24px; display: block; background: url("../img/icon-search.png") no-repeat center center; background-size: 18px;
+  cursor: pointer;
+}
+.icon-close{
+  width: 24px; height: 24px; display: block; background: url("../img/icon-close.png") no-repeat center center; background-size: 18px;
+  cursor: pointer;
+}
+.icon-cart{
+  width: 24px; height: 24px; display: block; background: url("../img/icon-cart.png") no-repeat center center; background-size: 18px;
+  cursor: pointer; display: inline-block; vertical-align: middle;
+}
+.mobile-cart-icon{
+  position: relative;
+  .countPill{
+    position: absolute; top: 9px; right: -9px;
+  }
+}
+.mobile-search-icon{
+  .icon-close{
+    display: none;
+  }
+  &.active{
+    .icon-close{
+      display: inline-block; vertical-align: middle;
+    }
+    .icon-search{
+      display: none;
+    }
   }
 }
 #quickSearch{
@@ -68,7 +112,7 @@
   }
   .productGrid{
     padding: 10px; border: 1px solid #cccccc; margin: 5px 0 0 0; background: #ffffff;
-    -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+    -webkit-border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; border-radius: 3px 3px 0 0;
     .product{
       float: none; width: auto; display: block; padding: 0;
       + .product{
@@ -92,7 +136,11 @@
     overflow: hidden; padding-top: 0;
   }
 }
-
+.view-all-btn{
+  .button{
+    display: block; margin-bottom: 0; -webkit-border-radius: 0 0 3px 3px; -moz-border-radius: 0 0 3px 3px; border-radius: 0 0 3px 3px;
+  }
+}
 .card-img-container{
   &:after{
     display: none;
@@ -131,6 +179,15 @@
   &:hover{
     .navPage-subMenu{
   	   display: block;
+    }
+  }
+}
+.mobile-menu-nav{
+  margin: 0; list-style: none;
+  li{
+    display: inline-block; vertical-align: middle;
+    + li{
+      margin-left: 15px;
     }
   }
 }

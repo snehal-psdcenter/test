@@ -1,25 +1,29 @@
-{{#if theme_settings.showtopbanner}}
-<div class="banners">
-    <div class="banner">
-        <p>{{theme_settings.topbannertext}}</p>
-    </div>
-</div>
-{{/if}}
 <header class="header" role="banner">
-    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
-        <span class="mobileMenu-toggleIcon">Toggle menu</span>
-    </a>
+  {{#if theme_settings.showtopbanner}}
+  <div class="banners custom-banner">
+      <div class="banner">
+          <p>{{theme_settings.topbannertext}}</p>
+      </div>
+  </div>
+  {{/if}}
     {{> components/common/navigation}}
 
     <div class="header-middle-bar">
       <div class="container">
         <div class="display-table">
-          <div class="display-tab-cell col-3">
+          <div class="display-tab-cell col-3 col-one">
+            <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+                <span class="mobileMenu-toggleIcon">Toggle menu</span>
+            </a>
             {{#if settings.phone_number}}
-                <strong class="header-contact">{{lang 'footer.header_call_us' phone_number=settings.phone_number}}</strong>
+              <a href="tel:{{lang 'footer.header_call_us' phone_number=settings.phone_number}}" class="header-contact">
+                <strong>
+                  <i class="icon-call"></i><span>{{lang 'footer.header_call_us' phone_number=settings.phone_number}}</span>
+                </strong>
+              </a>
             {{/if}}
           </div>
-          <div class="display-tab-cell col-3">
+          <div class="display-tab-cell col-3 col-two">
             {{#if page_type '===' 'default'}}
                 <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
                     {{> components/common/store-logo}}
@@ -30,9 +34,21 @@
                 </div>
             {{/if}}
           </div>
-          <div class="display-tab-cell col-3 align-right">
-            <div id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
-                {{> components/common/quick-search searchfrm="desktopsearch"}}
+          <div class="display-tab-cell col-3 col-three align-right">
+            <ul class="show-for-tab mobile-menu-nav">
+              <li>
+                <a class="mobile-cart-icon" href="{{urls.cart}}">
+                    <span class="icon-cart"></span>
+                    <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                </a>
+              </li>
+              <li class="mobile-search-icon">
+                <span class="icon-search"></span>
+                <span class="icon-close"></span>
+              </li>
+            </ul>
+            <div id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close class="clearfix">
+              {{> components/common/quick-search searchfrm="desktopsearch"}}
             </div>
           </div>
         </div>

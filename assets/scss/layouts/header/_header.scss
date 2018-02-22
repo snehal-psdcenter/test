@@ -37,7 +37,9 @@
 
 .header-logo {
     font-size: 0;   // 1
-    margin: 0 remCalc($header-toggle-width); // 2
+    // margin: 0 remCalc($header-toggle-width); // 2
+    margin: 0;
+    padding: 0 15px;
     text-align: center;
 
     // @include breakpoint("small") { // 4
@@ -46,7 +48,7 @@
     // }
 
     @include breakpoint("medium") {
-        padding: 0;
+        // padding: 0;
 
         .header.fixed & {
             background-color: color("greys", "lightest");
@@ -181,11 +183,13 @@
     @include square($header-toggle-width);
     display: inline-block;
     font-size: 0;
-    left: 0;
+    // left: 0;
     overflow: hidden;
     padding: 0 remCalc(18);
-    position: absolute;
+    // position: absolute;
+    vertical-align: middle;
     z-index: zIndex("high");
+    position: relative;
 
     @include breakpoint("medium") {
         display: none;
