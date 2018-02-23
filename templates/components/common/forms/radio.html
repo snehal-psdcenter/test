@@ -6,9 +6,10 @@
     </label>
     {{#if radios}}
         {{#each radios}}
-            <input 
+            <input
                 type="radio"
-                class="form-radio"
+                class="form-radio {{class_name}}"
+                style="{{style}}" 
                 name="{{../name}}"
                 id="{{../name}}_{{@index}}"
                 value="{{value}}"
