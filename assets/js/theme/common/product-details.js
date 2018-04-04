@@ -133,6 +133,15 @@ export default class ProductDetails {
                 mainImageUrl,
                 zoomImageUrl,
             });
+            var altimg = (image.alt != 'null') ? image.alt:"";
+
+            if(!$(".hiddengallery[href='"+zoomImageUrl+"']").length){
+                  $(".productView-thumbnail-link.is-active").removeClass('is-active');
+                  $('<li class="ruleimage"><a rel="gallery" data-fancybox="gallery" style="display:none;" class="ruleimage hiddengallery currentGalleryImage productView-thumbnail-link is-active" href="'+zoomImageUrl+'" data-caption="'+altimg+'"></a></li>').insertBefore($(".productView-thumbnails li:first"));
+            } else {
+               $(".hiddengallery[href='"+zoomImageUrl+"']").addClass('currentGalleryImage');
+            }
+
         } else {
             this.imageGallery.restoreImage();
         }

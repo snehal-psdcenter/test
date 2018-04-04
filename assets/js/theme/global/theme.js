@@ -55,7 +55,23 @@ export default function() {
     });
 
     /*  Fancybox  */
+
+    //Don't enable Cloud Zoom (product image zoom) on touch device
+    //Mouseenter/Mouseover events are not ideal for touch devices
+    //for more info search for this code in /script/main.js
+    if (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)){
+        $('.productView-thumbnails li').each(function(){
+          $(this).find("a").attr('href','javascript:void(0)');
+          $(this).find("a").removeAttr('data-fancybox');
+        });
+    }
+
+    $(document).on('click','.easyzoom-flyout',function(){
+         $('.fancythumb').click();
+    });
     $('.fancythumb').click(function(){
+      $('ul.productView-thumbnails li a.is-active').attr('data-fancybox','gallery');
+      $('ul.productView-thumbnails li a.is-active').attr('href',$('ul.productView-thumbnails li a.is-active').attr('data-fancybox-href'));
       $('ul.productView-thumbnails li a.is-active').trigger('click');
     });
 
@@ -67,6 +83,7 @@ export default function() {
       $(this).attr('data-fancybox','gallery');
       $(this).attr("href",$(this).attr('data-fancybox-href'));
     });
+
 
 
   }); // READY END
