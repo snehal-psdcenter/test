@@ -7,7 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "@bigcommerce/stencil-utils": "^1.1.2",
-    "@fancyapps/fancybox": "fancyapps/fancybox",
+    "@fancyapps/fancybox": "^3.2.5",
     "async": "^2.5.0",
     "babel-polyfill": "^6.26.0",
     "easyzoom": "^2.5.0",
