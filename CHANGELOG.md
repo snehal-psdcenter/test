@@ -1,8 +1,22 @@
 # Changelog
 
 ## Draft
+
+## 1.14.0 (2018-03-12)
+- Fix product options unhiding indexing issue. [#1176](https://github.com/bigcommerce/cornerstone/pull/1176)
+- Add schema microdata for breadcrumbs. [#1175](https://github.com/bigcommerce/cornerstone/pull/1175)
+- Fix ItemAvailability microdata schema for product pages. [#1174](https://github.com/bigcommerce/cornerstone/pull/1174)
+- Fix invoice.css styles. [#1171](https://github.com/bigcommerce/cornerstone/pull/1171)
+
+## 1.13.2 (2018-02-28)
+- Fix updateView firing when there are no default options. [#1172](https://github.com/bigcommerce/cornerstone/pull/1172)
+- Don't clear bulk pricing rules when feature is disabled. [#1173](https://github.com/bigcommerce/cornerstone/pull/1173)
+
+## 1.13.1 (2018-02-26)
 - Fix "Shop by Price" toggle in theme editor to hide Shop by Price when faceted search is not enabled. [#1161](https://github.com/bigcommerce/cornerstone/pull/1161)
+- Migrate jQuery from 2->3. [#1162](https://github.com/bigcommerce/cornerstone/pull/1162)
 - Fix slick-next and slick-prev so that they are centered across all screen sizes. [#1166](https://github.com/bigcommerce/cornerstone/pull/1166)
+- Add support for per-variant bulk pricing tier display on PDP [#1167](https://github.com/bigcommerce/cornerstone/pull/1167)
 
 ## 1.13.0 (2018-02-05)
 - Fix logo not loading on order confirmation page [#1159](https://github.com/bigcommerce/cornerstone/pull/1159)

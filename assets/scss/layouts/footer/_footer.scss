@@ -133,11 +133,11 @@
 
 .footer-payment-icons {
     height: remCalc(40);
-    // margin-top: spacing("single");
+    margin-top: spacing("single");
 
-    // @include breakpoint("medium") {
-    //     margin-top: spacing("double");
-    // }
+    @include breakpoint("medium") {
+        margin-top: spacing("double");
+    }
 
     .footer-payment-icon {
         height: 100%;

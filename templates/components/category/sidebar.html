@@ -1,10 +1,5 @@
 <nav>
-    {{#if category.subcategories}}
-    <div class="sidebarBlock">
-        <h5 class="sidebarBlock-heading">{{category.name}}</h5>
-        {{> components/category/common-category-list}}
-    </div>
-    {{/if}}
+    {{> components/common/sidebar}}
 
     {{#if category.faceted_search_enabled}}
         {{> components/faceted-search/index category}}

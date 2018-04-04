@@ -48,6 +48,7 @@
     // }
 
     @include breakpoint("medium") {
+        // margin: (spacing("double") + spacing("base")) auto (spacing("double") + spacing("single"));
         // padding: 0;
 
         .header.fixed & {
@@ -187,9 +188,7 @@
     overflow: hidden;
     padding: 0 remCalc(18);
     // position: absolute;
-    vertical-align: middle;
     z-index: zIndex("high");
-    position: relative;
 
     @include breakpoint("medium") {
         display: none;

@@ -1,0 +1,14 @@
+{{# if categories }}
+<div class="sidebarBlock side-bar-toggle-title">
+<h5 class="sidebarBlock-heading">{{lang 'footer.categories'}}</h5>
+	<div class="side-bar-toggle-content">
+		<ul class="navList navList-treeview treeview">
+			{{#each categories}}
+			<li>
+				{{> components/common/category-navigation-list}}
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
+{{/ if}}

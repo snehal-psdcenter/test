@@ -21,15 +21,6 @@ brand:
     </div>
 {{/if}}
 <h1 class="page-heading">{{brand.name}}</h1>
-
-{{#if banners.top}}
-<div class="banners m-b-30" data-banner-location="top">
-    <div class="banner">
-        {{{limit banners.top 1}}}
-    </div>
-</div>
-{{/if}}
-
 {{{snippet 'brand'}}}
 <div class="page">
     <aside class="page-sidebar" id="faceted-search-container">

@@ -22,25 +22,26 @@ export default class ProductDetails {
         const $form = $('form[data-cart-item-add]', $scope);
         const $productOptionsElement = $('[data-product-option-change]', $form);
         const hasOptions = $productOptionsElement.html().trim().length;
+        const hasDefaultOptions = $productOptionsElement.find('[data-default]').length;
 
-        $productOptionsElement.change(event => {
+        $productOptionsElement.on('change', event => {
             this.productOptionsChanged(event);
         });
 
-        $form.submit(event => {
+        $form.on('submit', event => {
             this.addProductToCart(event, $form[0]);
         });
 
-        // Update product attributes. If we're in quick view and the product has options,
-        // then also update the initial view in case items are oos
-        if (_.isEmpty(productAttributesData) && hasOptions) {
+        // Update product attributes. Also update the initial view in case items are oos
+        // or have default variant properties that change the view
+        if ((_.isEmpty(productAttributesData) || hasDefaultOptions) && hasOptions) {
             const $productId = $('[name="product_id"]', $form).val();
 
-            utils.api.productAttributes.optionChange($productId, $form.serialize(), (err, response) => {
+            utils.api.productAttributes.optionChange($productId, $form.serialize(), 'products/bulk-discount-rates', (err, response) => {
                 const attributesData = response.data || {};
-
+                const attributesContent = response.content || {};
                 this.updateProductAttributes(attributesData);
-                this.updateView(attributesData);
+                this.updateView(attributesData, attributesContent);
             });
         } else {
             this.updateProductAttributes(productAttributesData);
@@ -77,6 +78,7 @@ export default class ProductDetails {
                 $text: $('.incrementTotal', $scope),
                 $input: $('[name=qty\\[\\]]', $scope),
             },
+            $bulkPricing: $('.productView-info-bulkPricing', $scope),
         };
     }
 
@@ -107,11 +109,11 @@ export default class ProductDetails {
             return;
         }
 
-        utils.api.productAttributes.optionChange(productId, $form.serialize(), (err, response) => {
+        utils.api.productAttributes.optionChange(productId, $form.serialize(), 'products/bulk-discount-rates', (err, response) => {
             const productAttributesData = response.data || {};
-
+            const productAttributesContent = response.content || {};
             this.updateProductAttributes(productAttributesData);
-            this.updateView(productAttributesData);
+            this.updateView(productAttributesData, productAttributesContent);
         });
     }
 
@@ -142,13 +144,13 @@ export default class ProductDetails {
      *
      */
     listenQuantityChange() {
-        this.$scope.on('click', '[data-quantity-change] button', (event) => {
+        this.$scope.on('click', '[data-quantity-change] button', event => {
             event.preventDefault();
             const $target = $(event.currentTarget);
             const viewModel = this.getViewModel(this.$scope);
             const $input = viewModel.quantity.$input;
-            const quantityMin = parseInt($input.data('quantity-min'), 10);
-            const quantityMax = parseInt($input.data('quantity-max'), 10);
+            const quantityMin = parseInt($input.data('quantityMin'), 10);
+            const quantityMax = parseInt($input.data('quantityMax'), 10);
 
             let qty = parseInt($input.val(), 10);
 
@@ -297,7 +299,7 @@ export default class ProductDetails {
             const $body = $('body');
             const $cartQuantity = $('[data-cart-quantity]', modal.$content);
             const $cartCounter = $('.navUser-action .cart-count');
-            const quantity = $cartQuantity.data('cart-quantity') || 0;
+            const quantity = $cartQuantity.data('cartQuantity') || 0;
 
             $cartCounter.addClass('cart-count--positive');
             $body.trigger('cart-quantity-update', quantity);
@@ -350,7 +352,7 @@ export default class ProductDetails {
      * Update the view of price, messages, SKU and stock options when a product option changes
      * @param  {Object} data Product attribute data
      */
-    updateView(data) {
+    updateView(data, content = null) {
         const viewModel = this.getViewModel(this.$scope);
 
         this.showMessageBox(data.stock_message || data.purchasing_message);
@@ -393,6 +395,12 @@ export default class ProductDetails {
             viewModel.$addToCart.prop('disabled', false);
             viewModel.$increments.prop('disabled', false);
         }
+        // If Bulk Pricing rendered HTML is available
+        if (data.bulk_discount_rates && content) {
+            viewModel.$bulkPricing.html(content);
+        } else if (typeof (data.bulk_discount_rates) !== 'undefined') {
+            viewModel.$bulkPricing.html('');
+        }
     }
 
     /**
@@ -412,7 +420,7 @@ export default class ProductDetails {
 
         $('[data-product-attribute-value]', this.$scope).each((i, attribute) => {
             const $attribute = $(attribute);
-            const attrId = parseInt($attribute.data('product-attribute-value'), 10);
+            const attrId = parseInt($attribute.data('productAttributeValue'), 10);
 
 
             if (inStockIds.indexOf(attrId) !== -1) {
@@ -466,7 +474,7 @@ export default class ProductDetails {
         if (behavior === 'hide_option') {
             $attribute.toggleOption(true);
         } else {
-            $attribute.removeAttr('disabled');
+            $attribute.prop('disabled', false);
             $attribute.html($attribute.html().replace(outOfStockMessage, ''));
         }
     }
@@ -474,7 +482,7 @@ export default class ProductDetails {
     getAttributeType($attribute) {
         const $parent = $attribute.closest('[data-product-attribute]');
 
-        return $parent ? $parent.data('product-attribute') : null;
+        return $parent ? $parent.data('productAttribute') : null;
     }
 
     /**
@@ -486,12 +494,12 @@ export default class ProductDetails {
 
             // Only bind to click once
             if ($radio.attr('data-state') !== undefined) {
-                $radio.click(() => {
+                $radio.on('click', () => {
                     if ($radio.data('state') === true) {
                         $radio.prop('checked', false);
                         $radio.data('state', false);
 
-                        $radio.change();
+                        $radio.trigger('change');
                     } else {
                         $radio.data('state', true);
                     }

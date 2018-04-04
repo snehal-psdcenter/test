@@ -2,27 +2,16 @@
     <a class="modal-close" aria-label="{{lang 'common.close'}}" data-drop-down-close role="button">
         <span aria-hidden="true">&#215;</span>
     </a>
-    <ul class="productGrid productGridReuslts">
+    <ul class="productGrid">
 
-         {{#each (limit product_results.products 5)}}
+        {{#each product_results.products}}
         <li class="product">
             {{> components/products/card alternate=true show_compare=../show_compare theme_settings=../theme_settings}}
         </li>
         {{/each}}
     </ul>
-    {{#if (length product_results.products) '>' 5}}
-         <div class="view-all-btn">
-             <a hre="javascript:void(0);"
-             onclick="document.getElementById(this.parentElement.parentElement.parentElement.getElementsByTagName('form')[0].getAttribute('id')).submit();"
-             class="button button--primary view-all">View All</a>
-         </div>
-   {{/if}}
 {{else}}
     <p class="quickSearchMessage">
         {{lang 'search.results.quick_count' count=pagination.product_results.total search_query=forms.search.query}}
     </p>
 {{/if}}
-<script>
-document.getElementsByClassName('productGridReuslts')[0].parentElement.setAttribute("class","quickSearchResults visible");
-document.getElementsByClassName('productGridReuslts')[0].parentElement.style.display = "block";
-</script>

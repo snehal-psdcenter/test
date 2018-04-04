@@ -1,6 +1,6 @@
 {
   "name": "Cornerstone",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "meta": {
     "price": 0,
     "documentation_url": "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
@@ -71,7 +71,7 @@
     "show_accept_visa": true,
     "show_product_details_tabs": true,
     "show_product_weight": true,
-    "show_product_dimensions": true,
+    "show_product_dimensions": false,
     "product_list_display_mode": "grid",
     "logo-position": "center",
     "logo_size": "250x100",
