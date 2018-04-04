@@ -22,6 +22,9 @@ body{
   }
 }
 .header-contact{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 13px;
   span{
     display: none;
   }
