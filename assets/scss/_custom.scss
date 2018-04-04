@@ -280,6 +280,39 @@ body.compensate-for-scrollbar{overflow:hidden}.fancybox-active{height:auto}.fanc
   bottom: -45px;
 }
 
+.navPages-action {
+	display: inline-block;
+	padding: 0.78571rem 1.14286rem 0.78571rem;
+}
+.navPage-childList-action{
+  padding: 0 0 0.35714rem;
+}
+.navPage-subMenu-action {
+	padding: 0.78571rem 0 1.14286rem;
+}
+.footer{
+  padding-bottom: 0;
+}
+.footer-bottom-bar{
+  border-top: 1px solid #e5e5e5;
+  padding: 10px 0;
+}
+.footer-payment-icons {
+	margin-top: 0;
+  .footer-payment-icon{
+    margin: 0 0.35714rem;
+  }
+}
+.footer-info-col--social{
+  margin-top: 40px;
+  .footer-info-heading{
+    display: none;
+  }
+  .socialLinks{
+    text-align: center;
+  }
+}
+
 /* ====================== INNER PAGE STYLE ====================== */
 
 ul.treeview{

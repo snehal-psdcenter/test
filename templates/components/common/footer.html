@@ -70,27 +70,29 @@
                 {{> components/common/geotrust-ssl-seal}}
             </div>
         {{/if}}
-        <div class="footer-bottom-bar clearfix">
-          <div class="display-table">
-            <div class="display-tab-cell col-2">
-              <div class="footer-copyright">
-                  <p class="powered-by">
-                    <!--{{#if theme_settings.show_powered_by}}
-                    Powered by
-                    <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a>
-                    {{/if}}-->
-                    {{#if theme_settings.show_copyright_footer}}
-                      &copy; {{moment format="YYYY"}} {{settings.store_name}} | BigCommerce Stencil Theme by <a href="https://themes.psdcenter.com/">PSDCenter</a>
-                    {{/if}}
-                  </p>
-              </div>
+    </div>
+    <div class="footer-bottom-bar clearfix">
+      <div class="container">
+        <div class="display-table">
+          <div class="display-tab-cell col-2">
+            <div class="footer-copyright">
+                <p class="powered-by">
+                  <!--{{#if theme_settings.show_powered_by}}
+                  Powered by
+                  <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a>
+                  {{/if}}-->
+                  {{#if theme_settings.show_copyright_footer}}
+                    &copy; {{moment format="YYYY"}} {{settings.store_name}} | BigCommerce Stencil Theme by <a href="https://themes.psdcenter.com/">PSDCenter</a>
+                  {{/if}}
+                </p>
             </div>
-            <div class="display-tab-cell col-2">
-              <div class="float-right">
-                {{> components/common/payment-icons}}
-              </div>
+          </div>
+          <div class="display-tab-cell col-2">
+            <div class="float-right">
+              {{> components/common/payment-icons}}
             </div>
           </div>
         </div>
+      </div>
     </div>
 </footer>
