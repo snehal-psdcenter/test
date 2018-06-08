@@ -14,11 +14,12 @@
             </li>
         {{/each}}
         {{#unless theme_settings.hide_content_navigation}}
-            {{#each pages}}
+            <!-- {{#each pages}}
                  <li class="navPages-item navPages-item-page">
                      <a class="navPages-action" href="{{url}}">{{name}}</a>
                  </li>
-             {{/each}}
+             {{/each}} -->
+             {{> components/common/navigation-pages}}
         {{/unless}}
     </ul>
     <ul class="navPages-list navPages-list--user">

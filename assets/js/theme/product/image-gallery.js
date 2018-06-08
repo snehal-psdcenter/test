@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import $ from 'jquery';
 import 'easyzoom';
 import _ from 'lodash';
@@ -81,3 +82,4 @@ export default class ImageGallery {
         this.$selectableImages.on('click', this.selectNewImage.bind(this));
     }
 }
+/*eslint-enable*/
